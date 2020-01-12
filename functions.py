@@ -330,6 +330,7 @@ def create_plots(df):
             # plot has been closed manually
             pass
 
+
 # Save new DF Data to .txt File in Output Folder:
 def merge_and_save_df(df):
     df.sort_values(by='Date', inplace=True)
