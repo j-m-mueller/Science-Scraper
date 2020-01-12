@@ -5,7 +5,7 @@ Fetches all Articles from the Main Page of *https://www.sciencemag.org/* and ana
 
 Article Sentiment is analyzed via the *textblob* package [Language Processing]. Sentiment Scores range from -1 (very negative) to +1 (very positive). An estimate of the relative Vocabulary size is calculated by the ratio of unique words in the Article and the Article Word Count.
 
-Keywords for each article are identified via Term frequency-inverse document frequency (Tf-idf), implemented in *scikit-learn*.
+Keywords for each article are identified via *Term frequency-inverse document frequency* (Tf-idf), implemented in *scikit-learn*.
 
 Activate "Cycling Mode" via the *config.py* file to cycle through articles in defined Time Intervals.
 
