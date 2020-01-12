@@ -10,6 +10,7 @@ pd.options.display.float_format = '{:.2f}'.format  # float formatting (digits to
 # Cycling Mode - update database every x seconds:
 cycling = False
 cycle_time = 20  # minutes
+tfidf_n = 3  # use top n terms of Tf-idf per article
 
 show_plots = True  # show plots after every cycle
 
@@ -17,5 +18,5 @@ show_plots = True  # show plots after every cycle
 debugging = False
 
 # Columns to Save in final .xls File:
-save_col_list = ['Date', 'Category', 'Title', 'Article Length', 'Article Sentiment', 'Avg. Sentence Length',
-                 'Avg. Word Length', 'Vocabulary']
+save_col_list = ['Date', 'Category', 'Title', 'Word Count', 'Article Sentiment', 'Avg. Sentence Length',
+                 'Avg. Word Length', 'Vocabulary', f'Top {tfidf_n} terms (Tf-idf)']

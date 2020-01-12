@@ -11,17 +11,25 @@ class Article:
         self.url = url
         self.category = category
 
+        self.full_text = ""
         self.sentences = []
         self.sentences_per_paragraph = []
-        self.article_length = None
+        self.word_count = None
         self.avg_sentence_length = None
         self.avg_word_length = None
         self.article_sentiment = None
         self.vocabulary = None
         self.words = []
 
+        self.tfidf_terms = None
+
     # Add Paragraph to Article:
     def add_paragraph(self, paragraph):
+        if len(self.full_text) == 0:
+            self.full_text += paragraph
+        else:
+            self.full_text += " " + paragraph
+
         # Split Paragraph into Sentences:
         sentences = [par for par in re.split('[.!?]', paragraph) if len(par) > 1]
         self.sentences.extend(sentences)
@@ -37,7 +45,7 @@ class Article:
             self.words.extend(words)
 
     def evaluate_article(self):
-        self.article_length = len(self.words)
+        self.word_count = len(self.words)
 
         # Calculate Average Word Length:
         word_lengths = []
