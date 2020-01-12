@@ -9,6 +9,7 @@ Keywords for each article are identified via *Term frequency-inverse document fr
 
 Activate "Cycling Mode" via the *config.py* file to cycle through articles in defined Time Intervals.
 
+
 Necessary packages:
-pandas, numpy, matplotlib, seaborn, scikit-learn, textblob, xlwt, bs4/BeautifulSoup, requests, traceback, re.
+*pandas, numpy, matplotlib, seaborn, scikit-learn, textblob, xlwt, bs4/BeautifulSoup, requests, traceback, re.*
 
