@@ -290,8 +290,6 @@ def create_plots(df):
     sns.set()
     fig, ax = plt.subplots(1, 3, figsize=(16, 9))
 
-    print(df)
-
     try:
         g = df.boxplot(column='Vocabulary', by='Category', ax=ax[0])
         g.set_xticklabels(['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
