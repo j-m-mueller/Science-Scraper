@@ -1,5 +1,6 @@
 import datetime
 
+
 # Base, helper and formatting functions:
 class bcolors:
     CYAN = '\033[36m'
@@ -22,8 +23,10 @@ class bcolors:
 
     ENDC = '\033[0m'
 
+
 def now_string():
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
 
 def standard_msg(message, nl=False):
     if nl:
@@ -31,17 +34,20 @@ def standard_msg(message, nl=False):
     else:
         print(now_string() + ": %s" % message)
 
+
 def vimp_msg(message, nl=False):
     if nl:
         print("\n" + bcolors.WHITE + bcolors.BGGRAY + bcolors.BOLD + now_string() + ": %s" % message + bcolors.ENDC)
     else:
         print(bcolors.WHITE + bcolors.BGGRAY + bcolors.BOLD + now_string() + ": %s" % message + bcolors.ENDC)
 
+
 def imp_msg(message, nl=False):
     if nl:
         print("\n" + bcolors.WHITE + bcolors.BGLGRAY + bcolors.BOLD + now_string() + ": %s" % message + bcolors.ENDC)
     else:
         print(bcolors.WHITE + bcolors.BGLGRAY + bcolors.BOLD + now_string() + ": %s" % message + bcolors.ENDC)
+
 
 def warn_msg(message, nl=False):
     if nl:

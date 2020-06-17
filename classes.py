@@ -1,27 +1,40 @@
 import re
 import numpy as np
+import datetime
+from typing import Optional, List
+from pydantic import BaseModel, Field
 from textblob import TextBlob  # Sentiment Analysis
 
-class Article:
-    def __init__(self, title, author=None, date=None, datetime_object=None, url=None, category=None):
-        self.title = title
-        self.author = author
-        self.date = date
-        self.datetime_object = datetime_object
-        self.url = url
-        self.category = category
 
-        self.sentences = []
-        self.sentences_per_paragraph = []
-        self.article_length = None
-        self.avg_sentence_length = None
-        self.avg_word_length = None
-        self.article_sentiment = None
-        self.vocabulary = None
-        self.words = []
+class Article(BaseModel):
+    title: str = Field(None)
+    author: str = Field(None)
+    url: str = Field(None)
+    category: str = Field(None)
+    date: Optional[str]
+    datetime_object: Optional[datetime.datetime]
 
-    # Add Paragraph to Article:
+    full_text: str = ""
+    sentences: List[str] = []
+    sentences_per_paragraph: List[str] = []
+    word_count: int = None
+    avg_sentence_length: int = None
+    avg_word_length: int = None
+    article_sentiment: float = None
+    vocabulary: float = None
+    words: List[str] = []
+
+    tfidf_terms: List[str] = None
+
+    class Config:
+        allow_population_by_field_name = True
+
     def add_paragraph(self, paragraph):
+        if len(self.full_text) == 0:
+            self.full_text += paragraph
+        else:
+            self.full_text += " " + paragraph
+
         # Split Paragraph into Sentences:
         sentences = [par for par in re.split('[.!?]', paragraph) if len(par) > 1]
         self.sentences.extend(sentences)
@@ -37,7 +50,7 @@ class Article:
             self.words.extend(words)
 
     def evaluate_article(self):
-        self.article_length = len(self.words)
+        self.word_count = len(self.words)
 
         # Calculate Average Word Length:
         word_lengths = []

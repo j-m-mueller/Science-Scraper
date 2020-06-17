@@ -5,45 +5,62 @@ from config import *
 # HTML Requests/Processing:
 import requests
 import pandas as pd
+from urllib.error import HTTPError
+from requests.exceptions import ConnectionError
 
 # Error Processing:
 import traceback
+from pydantic import ValidationError
 
 # Visual Output:
 import matplotlib.pyplot as plt
 import seaborn as sns
 from bs4 import BeautifulSoup  # HTML Processing
 
-# Path validation:
-import os
+# Text Processing:
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Timeouts:
-import time
+# Path validation and console logs:
+import os
+import sys
+
 
 # Log Statistical Properties of DataFrame grouped by Category to Console:
 def print_summary_by_row(category_df, property):
+    '''
+        Log statistical properties of a article group to console.
+        :param category_df: article category DF
+        :param property: property to analyze
+    '''
     standard_msg("Grouped by %s:\n" % property, True)
     for ind, row in category_df[property].sort_values('mean', ascending=False).iterrows():
         row_dict = row.to_dict()
         # Format Numbers
         for key, value in row_dict.items():
-            if key != 'count':
-                row_dict[key] = '{:.2f}'.format(value)
-            else:
-                row_dict[key] = int(value)
+            row_dict[key] = '{:.2f}'.format(value) if key != 'count' else int(value)
+
         # Create Console Output:
-        print("Category '%s': %s %s(Min: %s, Max: %s, Count: %s)" % (ind, row_dict['mean'], "± %s " % row_dict['std'] if
-                                                                      row_dict['std'] != 'nan' else "",
-                                                                      row_dict['min'], row_dict['max'],
-                                                                      row_dict['count']))
+        print(f"Category '{ind}': {row_dict['mean']} {'± %s ' % row_dict['std'] if row_dict['std'] != 'nan' else ''}"
+              f"(Min: {row_dict['min']}, Max: {row_dict['max']}, Count: {row_dict['count']})")
 
-# Process Title Page:
+
 def process_title_page(root_url):
+    '''
+        Retrieve and process content of Science title page.
+        :param root_url: root URL of Science Magazine
+        :return: list of articles
+    '''
     imp_msg("Gathering Information from Root URL %s...\n" % root_url)
-    # Request Website Content:
-    response = requests.get(root_url)
+    try:
+        response = requests.get(root_url)
+    except HTTPError as err:
+        warn_msg(f"Scraping of the root URL yielded a HTTP error (status code: {err.code}). Exiting...")
+        sys.exit()
+    except ConnectionError:
+        warn_msg(
+            f"Connection failed for scraping of root URL. Check your internet connection and try again! Exiting...")
+        sys.exit()
 
-    # Process Content via BeautifulSoup:
     soup = BeautifulSoup(response.content, 'html.parser')
     if debugging:
         print(soup)
@@ -55,72 +72,113 @@ def process_title_page(root_url):
     for category in category_list:
         curr_category = category.find(text=True, recursive=False).strip()
 
-        if curr_category not in ['How To Get Published', 'Podcast']:
-            standard_msg("Currently scraping Articles from the Category '%s'..." % curr_category)
-            curr_news_list = category.parent.findAll('h2', {'class': 'media__headline'})
+        try:
+            assert curr_category not in ['How To Get Published', 'Podcast', 'footer css edit']
+        except AssertionError:
+            continue
 
-            for news in curr_news_list:
-                # filter empty elements:
-                if len(news.text.strip()) > 0:
-                    curr_headline = news.text.strip()
-                    if curr_headline.lower() != 'out of sync':
-                        curr_url = news.find('a')['href']
-                        # check if current URL is complete or just a sub-URL:
-                        if 'sciencemag' not in curr_url:
-                            curr_url = "http://www.sciencemag.org%s" % curr_url
-                        # find Author and Date of Article:
-                        by_elem = news.findNext('p', {'class': 'byline'})
-                        curr_author = by_elem.find('a').text.strip()
-                        curr_date = by_elem.find('time').text.strip()
-                        # convert date to datetime object for later processing:
-                        try:
-                            if '.' not in curr_date:
-                                curr_datetime = datetime.datetime.strptime(curr_date, '%d %b %Y')
-                            else:
-                                curr_datetime = datetime.datetime.strptime(curr_date, '%b. %d, %Y')
-                        except:
-                            warn_msg("Error isolating the Date from the following Timestamp: '%s'." % curr_date)
-                            curr_datetime = None
+        standard_msg(f"Currently scraping Articles of the Category '{curr_category}'...")
+        curr_news_list = category.parent.findAll('h2', {'class': 'media__headline'})
 
-                        curr_article = Article(title=curr_headline, url=curr_url, author=curr_author, date=curr_date,
-                                               datetime_object=curr_datetime, category=curr_category)
-                        article_list.append(curr_article)
+        for news in curr_news_list:
+            try:
+                assert len(news.text.strip()) > 0
 
-    standard_msg("Title Page successfully scraped. %s Articles were isolated." % (len(article_list)), True)
+                curr_headline = news.text.strip()
+                assert curr_headline.lower() != 'out of sync'
+            except AssertionError:
+                continue
+
+            curr_url = news.find('a')['href']
+
+            # check if current URL is complete or just a sub-URL:
+            if 'sciencemag' not in curr_url:
+                curr_url = "http://www.sciencemag.org%s" % curr_url
+
+            # find Author and Date of Article:
+            by_elem = news.findNext('p', {'class': 'byline'})
+            curr_author = by_elem.find('a').text.strip()
+            curr_date = by_elem.find('time').text.strip()
+
+            # convert date to datetime object for later processing:
+            try:
+                if '.' not in curr_date:
+                    curr_datetime = datetime.datetime.strptime(curr_date, '%d %b %Y')
+                else:
+                    curr_datetime = datetime.datetime.strptime(curr_date, '%b. %d, %Y')
+            except ValueError:
+                warn_msg(f"Error isolating the Date from the following Timestamp: '{curr_date}'.")
+                curr_datetime = None
+
+            try:
+                curr_article = Article(
+                    **{
+                        'title': curr_headline,
+                        'url': curr_url,
+                        'author': curr_author,
+                        'date': curr_date,
+                        'datetime_object': curr_datetime,
+                        'category': curr_category
+                    }
+                )
+                article_list.append(curr_article)
+            except ValidationError:
+                continue
+
+    standard_msg(f"Title Page successfully scraped. {len(article_list)} Articles were isolated.", True)
 
     return article_list
 
+
 def process_article_pages(article_list):
-    # Iterate through URLs to extract the Time and Day of Posting and Information on Article Length/Vocabulary/etc.:
+    '''
+        Iterate through URLs to extract the Time and Day of Posting and Information on Article Length/Vocabulary/etc.
+        :param article_list: list of articles
+        :return: list of processed articles
+    '''
     imp_msg("Iterating through Article Pages...\n", True)
 
     error_list = []
     error_indices = []
     for i, article in enumerate(article_list):
-        standard_msg("Currently processing Article %s/%s: '%s' (%s)..."
-                     % (i + 1, len(article_list), article.title, article.date))
+        sys.stdout.write(f"\rCurrently processing Article {i + 1}/{len(article_list)} "
+                         f"({(i + 1) / len(article_list) * 100:.1f}%): '{article.title}' ({article.date})...")
+        sys.stdout.flush()
 
         try:
+            curr_content = ''
+
             # isolate article text:
             response = requests.get(article.url)
             soup = BeautifulSoup(response.content, 'html.parser')
 
+            # main routine: check meta data:
             meta_content = soup.findAll('meta', {'content': True})
             for meta in meta_content:
-                if len(meta['content']) > 800:
+                if len(meta['content']) > 800 and 'citation' not in meta['content']:
                     curr_content = meta['content']
                     break
+            # fallback routine: fetch article body and isolate text from single paragraphs:
+            if curr_content == '':
+                body = soup.find('div', {'class': 'article__body'})
+                pars = body.findAll('p')
+                for par in pars:
+                    article.add_paragraph(par.text)
+            else:
+                # eliminate picture descriptions from text:
+                curr_content = curr_content.split('1.  [')[0]
+                article.add_paragraph(curr_content)
 
-            # eliminate picture descriptions from text:
-            curr_content = curr_content.split('1.  [')[0]
-            article.add_paragraph(curr_content)
+            # print first 100 characters of article text for debugging:
+            if debugging:
+                print(f"\n{article.title}\t{curr_content[:100]}\n")
         except:
             error_list.append(article.title)
             error_indices.append(i)
 
     # eliminate invalid articles:
     if len(error_list) > 0:
-        warn_msg("Errors occurred for the processing of %s Articles." % (len(error_list)), True)
+        warn_msg(f"Errors occurred for the processing of {len(error_list)} Articles.", True)
 
         final_article_list = []
         for i, article in enumerate(article_list):
@@ -135,41 +193,103 @@ def process_article_pages(article_list):
 
     return final_article_list
 
-def create_console_output(final_articles):
-    # Print Results to Console:
-    imp_msg("Evaluation finished. Found the following %s Articles:\n" % len(final_articles), True)
-    for ind, article in enumerate(final_articles):
-        string = "%s.) %s [%s]." % (ind + 1, article.title, article.date)
 
-        if article.article_length is not None:
-            string += " (Word Count: %s, Average Sentence Length: %s, Average Word Length: %s, Article Sentiment: %s)" \
-                      % (article.article_length, '{:.2f}'.format(article.avg_sentence_length),
-                         '{:.2f}'.format(article.avg_word_length), '{:.2f}'.format(article.article_sentiment))
+def get_tfidf_matrix(final_articles):
+    '''
+        Perform Term frequency, inverse document frequency analysis for keyword extraction.
+        :param final_articles: list of processed articles
+    '''
+    print("\n")
+    standard_msg("Performing Tf-Idf analysis on the full article texts...\n", True)
+    article_list = []
+    title_list = []
+    url_list = []
+    article_numbers = np.arange(len(final_articles))
+    # iterate through article list and extract full text of each article for tf-idf processing:
+    for article in final_articles:
+        article_list.append(article.full_text)
+        title_list.append(article.title)
+        url_list.append(article.url)
+
+    # create and fit Tf-idf vectorizer:
+    tfidf_vectorizer = TfidfVectorizer(stop_words='english',
+                                       lowercase=True)  # use english stop word list and convert to lowercase
+    tfidf_matrix = tfidf_vectorizer.fit_transform(article_list)
+
+    # convert resulting tf-idf matrix to an array:
+    mat_array = tfidf_matrix.toarray()
+
+    # isolate tf-idf terms:
+    fn = tfidf_vectorizer.get_feature_names()
+
+    # loop over array and save top n terms as article object property:
+    for i, (l, title, url) in enumerate(zip(mat_array, title_list, url_list)):
+        top_terms_rated = [(fn[x], l[x]) for x in (l * -1).argsort()][:tfidf_n]
+        top_terms = [fn[x] for x in (l * -1).argsort()][:tfidf_n]
+        if debugging:
+            print(f"Top {tfidf_n} terms for {title}:", top_terms_rated)
+        final_articles[i].tfidf_terms = ', '.join(top_terms)  # save top terms to article as joined string
+
+
+def create_console_output(final_articles):
+    '''
+        Log analysis results to console.
+        :param final_articles: list of processed article objects
+    '''
+    # Print Results to Console:
+    imp_msg(f"Evaluation finished. Found the following {len(final_articles)} Articles:\n", True)
+    for ind, article in enumerate(final_articles):
+        string = f"{ind + 1}.) {article.title} [{article.date}]."
+
+        if article.word_count is not None:
+            string += f" (Word Count: {article.word_count}, Average Sentence Length: {article.avg_sentence_length:.2f}, " \
+                      f"Average Word Length: {article.avg_word_length:.2f}, " \
+                      f"Article Sentiment: {article.article_sentiment:.2f}," \
+                      f" Top Terms (Tf-idf): {article.tfidf_terms})"
         print(string)
 
+
 def convert_to_dataframe(final_articles):
+    '''
+        Convert the list of processed article objects to a dataframe.
+        :param final_articles: list of processed article objects
+    '''
     # Convert Article Object Features to DataFrame (DF):
     df = pd.DataFrame([vars(f) for f in final_articles])
 
     # Delete unnecessary columns:
-    df.drop(['sentences', 'sentences_per_paragraph', 'url', 'words', 'date'], axis=1, inplace=True)
-
-    # Rename and rearrange DF Columns:
-    df.columns = ['Article Length', 'Article Sentiment', 'Author', 'Avg. Sentence Length', 'Avg. Word Length',
-                  'Category', 'Date', 'Title', 'Vocabulary']
+    df.drop(['sentences', 'sentences_per_paragraph', 'url', 'words', 'date',
+             'full_text'], axis=1, inplace=True)
 
     if debugging:
-        print(df)
+        print("\nColumns prior to DF processing:")
+        print(df.columns)
 
-    df = df[['Date', 'Category', 'Title', 'Article Length', 'Article Sentiment', 'Avg. Sentence Length',
-             'Avg. Word Length', 'Vocabulary']]
+    # Rename and rearrange DF Columns:
+    df.rename(
+        columns={
+            'title': 'Title',
+            'author': 'Author',
+            'avg_sentence_length': 'Avg. Sentence Length',
+            'avg_word_length': 'Avg. Word Length',
+            'article_sentiment': 'Article Sentiment',
+            'vocabulary': 'Vocabulary',
+            'word_count': 'Word Count',
+            'category': 'Category',
+            'datetime_object': 'Date',
+            'tfidf_terms': f'Top {tfidf_n} terms (Tf-idf)'
+        },
+        inplace=True
+    )
 
-    # Print Result to Console:
+    df = df[['Date', 'Category', 'Title', 'Word Count', 'Article Sentiment', 'Avg. Sentence Length',
+             'Avg. Word Length', 'Vocabulary', f'Top {tfidf_n} terms (Tf-idf)']]
+
     imp_msg("Final DataFrame:\n", True)
     print(df)
 
-    # Drop Paid Content Columns for further analysis:
-    df.dropna(axis='rows', subset=['Article Length', 'Avg. Word Length'], inplace=True)
+    # drop restricted access content columns for further analysis:
+    df.dropna(axis='rows', subset=['Word Count', 'Avg. Word Length'], inplace=True)
 
     imp_msg("Meta-Analysis of Article Information:\n", True)
     print(df.describe())
@@ -191,76 +311,98 @@ def convert_to_dataframe(final_articles):
     category_groups = df.groupby(by=['Category']).describe()
 
     print_summary_by_row(category_groups, 'Vocabulary')
-    print_summary_by_row(category_groups, 'Article Length')
+    print_summary_by_row(category_groups, 'Word Count')
     print_summary_by_row(category_groups, 'Avg. Sentence Length')
 
     df = merge_and_save_df(df)
 
     return df
 
+
 def create_plots(df):
-    # Plot Scatter Matrix to identify Correlations and visualize the Data Distribution:
+    '''
+        Plot scatter matrix with correlations and distributions.
+        :param df: article dataframe
+    '''
     sns.set()
     axes = pd.plotting.scatter_matrix(df, figsize=(16, 9))
+
     # count numeric DataFrame columns:
     numeric_columns = 0
     for col in df.columns:
         if df[col].dtype in ['float64', 'int64']:
             numeric_columns += 1
+
     # increase label padding:
     for x in range(numeric_columns):
         for y in range(numeric_columns):
             ax = axes[x, y]
             ax.xaxis.labelpad = 20
             ax.yaxis.labelpad = 20
+
     plt.suptitle("Correlations and Data Distribution: Scatter Matrix of Article Properties")
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.grid(True)
     if not cycling:
         plt.show()
+
     # Auto-close Plot in Cycling Mode after 60 seconds:
     elif show_plots:
         plt.show(block=False)
-        try:
-            plt.pause(60)
-            plt.close()
-        except:
-            # plot has been closed manually
-            pass
+        plt.pause(60)
+        plt.close()
 
     # Create Box Plots for Vocabulary and Article Sentiment against Category:
     sns.set()
     fig, ax = plt.subplots(1, 3, figsize=(16, 9))
 
-    g = df.boxplot(column='Vocabulary', by='Category', ax=ax[0])
-    g.set_xticklabels(['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
-    g.set_xticklabels(g.get_xticklabels(), rotation=90)
-    ax[0].set_title("Vocabulary (Word Set divided by Article Length)")
+    try:
+        g = df.boxplot(column='Vocabulary', by='Category', ax=ax[0])
+        g.set_xticklabels(
+            ['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
+        g.set_xticklabels(g.get_xticklabels(), rotation=90)
+        ax[0].set_title("Vocabulary (Word Set divided by Article Length)")
+    except Exception:
+        warn_msg("Error during subplot creation (subplot 1):")
+        traceback.print_exc()
 
-    h = df.boxplot(column='Article Sentiment', by='Category', ax=ax[1])
-    h.set_xticklabels(['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
-    h.set_xticklabels(h.get_xticklabels(), rotation=90)
+    try:
+        h = df.boxplot(column='Article Sentiment', by='Category', ax=ax[1])
+        h.set_xticklabels(
+            ['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
+        h.set_xticklabels(h.get_xticklabels(), rotation=90)
+    except Exception:
+        warn_msg("Error during subplot creation (subplot 2):")
+        traceback.print_exc()
 
-    i = df.boxplot(column='Article Length', by='Category', ax=ax[2])
-    i.set_xticklabels(['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
-    i.set_xticklabels(h.get_xticklabels(), rotation=90)
+    try:
+        i = df.boxplot(column='Word Count', by='Category', ax=ax[2])
+        i.set_xticklabels(
+            ['%s ($n$=%d)' % (k, len(v)) for k, v in df.groupby(by=['Category'])])  # add count per category
+        i.set_xticklabels(h.get_xticklabels(), rotation=90)
+    except Exception:
+        warn_msg("Error during subplot creation (subplot 3):")
+        traceback.print_exc()
 
+    # tighten layout:
     plt.tight_layout()
-    fig.subplots_adjust(top=.9)  # Increase Spacing for Overall Title
+    fig.subplots_adjust(top=.85, bottom=0.3)  # Increase Spacing for Overall Title
     if not cycling:
         plt.show()
+
     # Auto-close Plot in Cycling Mode after 60 seconds:
     elif show_plots:
         plt.show(block=False)
-        try:
-            plt.pause(60)
-            plt.close()
-        except:
-            # plot has been closed manually
-            pass
+        plt.pause(60)
+        plt.close()
 
-# Save new DF Data to .txt File in Output Folder:
+
 def merge_and_save_df(df):
+    '''
+        Save new DF Data to .txt File in Output Folder:
+        :param df: current article DF
+        :return: combined article DF
+    '''
     df.sort_values(by='Date', inplace=True)
     df.reset_index(drop=True, inplace=True)
 

@@ -1,6 +1,6 @@
 # Webscraping of https://sciencemag.org
 
-# by J. M. Müller 09/2019
+# by J. M. Müller 09/2019-06/2020
 
 from functions import *
 
@@ -17,10 +17,9 @@ root_url = 'https://www.sciencemag.org/'
 running = True
 
 if __name__ == '__main__':
-    # print welcome message:
     vimp_msg("Welcome to the Science Scraper!\n", True)
     if cycling:
-        imp_msg("Cycling Mode activated... Refreshing data every %s minutes." % round(cycle_time / 60, 1))
+        imp_msg(f"Cycling Mode activated... Refreshing data every {cycle_time} minutes.")
     while running:
         if cycling:
             cycle_start = datetime.datetime.now()
@@ -31,6 +30,9 @@ if __name__ == '__main__':
         # process Article Pages:
         final_articles = process_article_pages(articles)
 
+        # create term frequency-inverse document frequency matrix:
+        tfidf_matrix = get_tfidf_matrix(final_articles)
+
         # Create Console Output:
         create_console_output(final_articles)
 
@@ -38,7 +40,6 @@ if __name__ == '__main__':
         df = convert_to_dataframe(final_articles)
 
         if show_plots:
-            # Plot Data:
             create_plots(df)
 
         if not cycling:
