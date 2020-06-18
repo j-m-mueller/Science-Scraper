@@ -1,6 +1,5 @@
-from classes import *
+from models import *
 from formatting import *
-from config import *
 
 # HTML Requests/Processing:
 import requests
@@ -44,7 +43,7 @@ def print_summary_by_row(category_df, property):
               f"(Min: {row_dict['min']}, Max: {row_dict['max']}, Count: {row_dict['count']})")
 
 
-def process_title_page(root_url):
+def process_title_page(root_url, debugging=False):
     '''
         Retrieve and process content of Science title page.
         :param root_url: root URL of Science Magazine
@@ -130,7 +129,7 @@ def process_title_page(root_url):
     return article_list
 
 
-def process_article_pages(article_list):
+def process_article_pages(article_list, debugging=False):
     '''
         Iterate through URLs to extract the Time and Day of Posting and Information on Article Length/Vocabulary/etc.
         :param article_list: list of articles
@@ -194,9 +193,10 @@ def process_article_pages(article_list):
     return final_article_list
 
 
-def get_tfidf_matrix(final_articles):
+def get_tfidf_matrix(final_articles, keyword_number, debugging=False):
     '''
         Perform Term frequency, inverse document frequency analysis for keyword extraction.
+        :param keyword_number: number of keywords to extract via Tf-idf
         :param final_articles: list of processed articles
     '''
     print("\n")
@@ -224,10 +224,10 @@ def get_tfidf_matrix(final_articles):
 
     # loop over array and save top n terms as article object property:
     for i, (l, title, url) in enumerate(zip(mat_array, title_list, url_list)):
-        top_terms_rated = [(fn[x], l[x]) for x in (l * -1).argsort()][:tfidf_n]
-        top_terms = [fn[x] for x in (l * -1).argsort()][:tfidf_n]
+        top_terms_rated = [(fn[x], l[x]) for x in (l * -1).argsort()][:keyword_number]
+        top_terms = [fn[x] for x in (l * -1).argsort()][:keyword_number]
         if debugging:
-            print(f"Top {tfidf_n} terms for {title}:", top_terms_rated)
+            print(f"Top {keyword_number} terms for {title}:", top_terms_rated)
         final_articles[i].tfidf_terms = ', '.join(top_terms)  # save top terms to article as joined string
 
 
@@ -249,9 +249,10 @@ def create_console_output(final_articles):
         print(string)
 
 
-def convert_to_dataframe(final_articles):
+def convert_to_dataframe(final_articles, keyword_number, debugging=False):
     '''
         Convert the list of processed article objects to a dataframe.
+        :param keyword_number: number of keywords to extract via Tf-idf
         :param final_articles: list of processed article objects
     '''
     # Convert Article Object Features to DataFrame (DF):
@@ -277,13 +278,13 @@ def convert_to_dataframe(final_articles):
             'word_count': 'Word Count',
             'category': 'Category',
             'datetime_object': 'Date',
-            'tfidf_terms': f'Top {tfidf_n} terms (Tf-idf)'
+            'tfidf_terms': f'Top {keyword_number} terms (Tf-idf)'
         },
         inplace=True
     )
 
     df = df[['Date', 'Category', 'Title', 'Word Count', 'Article Sentiment', 'Avg. Sentence Length',
-             'Avg. Word Length', 'Vocabulary', f'Top {tfidf_n} terms (Tf-idf)']]
+             'Avg. Word Length', 'Vocabulary', f'Top {keyword_number} terms (Tf-idf)']]
 
     imp_msg("Final DataFrame:\n", True)
     print(df)
@@ -314,14 +315,15 @@ def convert_to_dataframe(final_articles):
     print_summary_by_row(category_groups, 'Word Count')
     print_summary_by_row(category_groups, 'Avg. Sentence Length')
 
-    df = merge_and_save_df(df)
+    df = merge_and_save_df(df, keyword_number)
 
     return df
 
 
-def create_plots(df):
+def create_plots(df, cycling):
     '''
         Plot scatter matrix with correlations and distributions.
+        :param cycling: cycling mode active?
         :param df: article dataframe
     '''
     sns.set()
@@ -343,11 +345,11 @@ def create_plots(df):
     plt.suptitle("Correlations and Data Distribution: Scatter Matrix of Article Properties")
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     plt.grid(True)
+
     if not cycling:
         plt.show()
-
-    # Auto-close Plot in Cycling Mode after 60 seconds:
-    elif show_plots:
+    else:
+        # Auto-close Plot in Cycling Mode after 60 seconds:
         plt.show(block=False)
         plt.pause(60)
         plt.close()
@@ -387,22 +389,26 @@ def create_plots(df):
     # tighten layout:
     plt.tight_layout()
     fig.subplots_adjust(top=.85, bottom=0.3)  # Increase Spacing for Overall Title
+
     if not cycling:
         plt.show()
-
-    # Auto-close Plot in Cycling Mode after 60 seconds:
-    elif show_plots:
+    else:
+        # Auto-close Plot in Cycling Mode after 60 seconds:
         plt.show(block=False)
         plt.pause(60)
         plt.close()
 
 
-def merge_and_save_df(df):
+def merge_and_save_df(df, keyword_number):
     '''
         Save new DF Data to .txt File in Output Folder:
+        :param keyword_number: number of keywords to extract via Tf-idf
         :param df: current article DF
         :return: combined article DF
     '''
+    save_col_list = ['Date', 'Category', 'Title', 'Word Count', 'Article Sentiment', 'Avg. Sentence Length',
+                     'Avg. Word Length', 'Vocabulary', f'Top {keyword_number} terms (Tf-idf)']
+
     df.sort_values(by='Date', inplace=True)
     df.reset_index(drop=True, inplace=True)
 
