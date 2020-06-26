@@ -201,20 +201,13 @@ def get_tfidf_matrix(final_articles, keyword_number, debugging=False):
     '''
     print("\n")
     standard_msg("Performing Tf-Idf analysis on the full article texts...\n", True)
-    article_list = []
-    title_list = []
-    url_list = []
-    article_numbers = np.arange(len(final_articles))
-    # iterate through article list and extract full text of each article for tf-idf processing:
-    for article in final_articles:
-        article_list.append(article.full_text)
-        title_list.append(article.title)
-        url_list.append(article.url)
+
+    articles, titles, urls = map(list, zip(*((art.full_text, art.title, art.url) for art in final_articles)))
 
     # create and fit Tf-idf vectorizer:
     tfidf_vectorizer = TfidfVectorizer(stop_words='english',
                                        lowercase=True)  # use english stop word list and convert to lowercase
-    tfidf_matrix = tfidf_vectorizer.fit_transform(article_list)
+    tfidf_matrix = tfidf_vectorizer.fit_transform(list(articles))
 
     # convert resulting tf-idf matrix to an array:
     mat_array = tfidf_matrix.toarray()
@@ -223,7 +216,7 @@ def get_tfidf_matrix(final_articles, keyword_number, debugging=False):
     fn = tfidf_vectorizer.get_feature_names()
 
     # loop over array and save top n terms as article object property:
-    for i, (l, title, url) in enumerate(zip(mat_array, title_list, url_list)):
+    for i, (l, title, url) in enumerate(zip(mat_array, titles, urls)):
         top_terms_rated = [(fn[x], l[x]) for x in (l * -1).argsort()][:keyword_number]
         top_terms = [fn[x] for x in (l * -1).argsort()][:keyword_number]
         if debugging:

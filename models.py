@@ -31,7 +31,7 @@ class Article(BaseModel):
 
     def add_paragraph(self, paragraph):
         if len(self.full_text) == 0:
-            self.full_text += paragraph
+            self.full_text += paragraph if len(self.full_text) == 0 else " " + paragraph
         else:
             self.full_text += " " + paragraph
 
@@ -53,16 +53,10 @@ class Article(BaseModel):
         self.word_count = len(self.words)
 
         # Calculate Average Word Length:
-        word_lengths = []
-        for word in self.words:
-            word_lengths.append(len(word))
-        self.avg_word_length = np.average(word_lengths)
+        self.avg_word_length = np.average(list(map(lambda word: len(word), self.words)))
 
-        # Calculate Average Sentence Length:
-        sentence_lengths = []
-        for sentence in self.sentences:
-            sentence_lengths.append(len(sentence))
-        self.avg_sentence_length = np.average(sentence_lengths)
+        # # Calculate Average Sentence Length:
+        self.avg_sentence_length = np.average(list(map(lambda sentence: len(sentence), self.sentences)))
 
         # Extract Overall Sentiment:
         full_word_list = ' '.join(self.words)

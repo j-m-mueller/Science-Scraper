@@ -8,76 +8,110 @@
 6	2019-12-19	Editor's Picks	Scientists have discovered the world’s oldest forest—and its radical impact on life	713	0.06552257266542981	113.5945945945946	4.887798036465638	0.4838709677419355	trees, roots, berry
 7	2019-12-20	Editor's Picks	Emotion semantics show both cultural variation and universal structure	232	0.0553125	89.23529411764706	5.560344827586207	0.5862068965517241	emotion, languages, terms
 8	2020-01-09	Insider	Florida joins U.S. government in probing foreign ties of researchers	1336	0.05491567013844242	129.7619047619048	5.110778443113771	0.4281437125748503	nih, florida, faculty
-9	2020-01-10	Featured Videos	Watch Russia, China, United States race to deploy ‘blazingly fast’ hypersonic weapons	168	0.01571428571428572	110.11111111111113	4.863095238095238	0.6547619047619048	hypersonic, weapons, china
-10	2020-01-10	Journals	Gamma-ray flash	234	0.06633333333333333	95.9375	5.585470085470085	0.4871794871794872	lightning, tgf, gamma
-11	2020-01-10	Insider	Indonesian health minister under fire for pushing his own controversial stroke treatment	795	0.0801223147921261	118.90476190476193	5.262893081761006	0.5522012578616352	terawan, indonesian, treatment
-12	2020-01-10	Featured Videos	Dancing chimpanzees may reveal how humans started to boogie	815	0.043473768016021534	134.9142857142857	4.765644171779141	0.4993865030674847	hattori, rhythmic, sounds
-13	2020-01-10	Insights	Completing Wallace's journey	974	0.12263705321227444	143.9111111111111	5.6211498973305964	0.5277207392197125	species, descriptions, bird
-14	2020-01-10	Featured Videos	Watch this AI goalie psych out its opponent in the most hilarious way	350	-0.05626262626262627	113.35294117647058	4.471428571428572	0.6114285714285714	bot, ai, blue
-15	2020-01-10	Insights	Improving cancer screening programs	1890	0.1194701575020724	156.7051282051282	5.4523809523809526	0.3343915343915344	screening, cancer, programs
-16	2020-01-10	Insights	A sugary input to leucine sensing	1115	0.007035480859010275	149.36	5.687892376681615	0.4278026905829597	leucine, lars1, mtorc1
-17	2020-01-10	Insider	Mystery virus found in Wuhan resembles bat viruses but not SARS, Chinese scientist says	760	0.12723124098124095	90.60416666666669	4.7210526315789485	0.4355263157894737	virus, xu, patients
-18	2020-01-10	Journals	Need for speed	2401	0.059723561850754836	99.2837837837838	5.109121199500208	0.4589754269054561	hypersonic, says, weapons
-19	2020-01-10	Journals	Early orangutan development	145	0.0912962962962963	136.14285714285714	5.572413793103448	0.7172413793103448	exploration, cognitive, social
-20	2020-01-10	Insights	Tolerance to antibiotics affects response	1021	0.050131485429992906	134.33962264150944	5.9813907933398625	0.4603330068560235	tolerance, antibiotic, antimicrobial
-21	2020-01-10	Journals	Limiting sea level rise	158	0.03148148148148147	119.375	5.063291139240507	0.5949367088607594	slr, temperature, target
-22	2020-01-10	Featured Videos	Watch a puffin use a tool—to scratch an itch	178	0.0527972027972028	127.5	4.707865168539327	0.6629213483146067	video, seen, puffin
-23	2020-01-10	Journals	Early epithelial responder	311	0.03461538461538461	144.46666666666667	5.977491961414791	0.5691318327974276	il, batf, ilc2
-24	2020-01-10	Journals	Enhancing human trust by explaining robot behavior	245	0.2721074380165289	173.77777777777774	5.4	0.5551020408163265	explanations, robot, trust
-25	2020-01-10	Journals	A formal methods approach to interpretable reinforcement learning	169	0.13653846153846155	239.8	6.053254437869822	0.6745562130177515	specification, robotic, reinforcement
-26	2020-01-10	Journals	Disease-associated mutations impair integrin recycling	377	-0.18636363636363634	165.25	6.002652519893899	0.4774535809018568	strumpellin, cav1, integrin
-27	2020-01-10	Journals	Skewing signaling with an accessory protein	244	0.21	130.5	5.426229508196722	0.4918032786885246	ghrelin, ghsr1a, mrap2
-28	2020-01-10	Journals	Study disputes carbon dioxide-fish behavior link	1018	0.14360104807473228	146.11363636363637	5.279960707269155	0.5058939096267191	replication, paper, studies
-29	2020-01-10	Featured Videos	These parrots are the first birds observed showing kindness to others	536	0.06606801093643197	104.76666666666668	4.850746268656716	0.5503731343283582	african, tokens, grays
-30	2020-01-10	Journals	Counteracting cardiopulmonary dysfunction in a feline model	359	0.022762951334379902	127.52631578947368	5.740947075208914	0.5376044568245125	saha, pressure, acetylation
-31	2020-01-10	First Release	Ultrahigh thermal conductivity in isotope-enriched cubic boron nitride	158	0.041357142857142856	101.1	5.424050632911391	0.7468354430379747	boron, aaas, cbn
-32	2020-01-10	First Release	Stormy water on Mars: The distribution and saturation of atmospheric water during the dusty season	2266	0.0551958525345622	107.34375	5.065754633715799	0.383053839364519	water, ls, vapor
-33	2020-01-10	Journals	Locating the reservoir for IgE memory	298	0.08356643356643358	135.92857142857142	5.409395973154362	0.4798657718120805	ige, plasma, memory
-34	2020-01-10	Journals	An mRNA influenza vaccine permits antibody responses in neonatal mice	274	0.17653061224489794	147.84615384615384	6.025547445255475	0.48905109489051096	antibodies, maternal, influenza
-35	2020-01-10	First Release	Butyrophilin 2A1 is essential for phosphoantigen reactivity by {gamma}{delta} T cells	127	0.11071428571428572	115.28571428571428	5.346456692913387	0.7322834645669292	γδ, pag, btn3a1
+9	2020-01-10	Journals	Enhancing human trust by explaining robot behavior	245	0.2721074380165289	173.77777777777774	5.4	0.5551020408163265	explanations, robot, trust
+10	2020-01-10	Journals	A formal methods approach to interpretable reinforcement learning	169	0.13653846153846155	239.8	6.053254437869822	0.6745562130177515	specification, robotic, reinforcement
+11	2020-01-10	Journals	Disease-associated mutations impair integrin recycling	377	-0.18636363636363634	165.25	6.002652519893899	0.4774535809018568	strumpellin, cav1, integrin
+12	2020-01-10	Journals	Skewing signaling with an accessory protein	244	0.21	130.5	5.426229508196722	0.4918032786885246	ghrelin, ghsr1a, mrap2
+13	2020-01-10	Journals	Study disputes carbon dioxide-fish behavior link	1018	0.14360104807473228	146.11363636363637	5.279960707269155	0.5058939096267191	replication, paper, studies
+14	2020-01-10	Journals	An mRNA influenza vaccine permits antibody responses in neonatal mice	274	0.17653061224489794	147.84615384615384	6.025547445255475	0.489051094890511	antibodies, maternal, influenza
+15	2020-01-10	Journals	Counteracting cardiopulmonary dysfunction in a feline model	359	0.022762951334379902	127.52631578947368	5.740947075208914	0.5376044568245125	saha, pressure, acetylation
+16	2020-01-10	First Release	Ultrahigh thermal conductivity in isotope-enriched cubic boron nitride	158	0.041357142857142856	101.1	5.424050632911391	0.7468354430379747	boron, aaas, cbn
+17	2020-01-10	Journals	Locating the reservoir for IgE memory	298	0.08356643356643358	135.92857142857142	5.409395973154362	0.4798657718120805	ige, plasma, memory
+18	2020-01-10	Journals	Early epithelial responder	311	0.03461538461538461	144.46666666666667	5.977491961414791	0.5691318327974276	il, batf, ilc2
+19	2020-01-10	First Release	Butyrophilin 2A1 is essential for phosphoantigen reactivity by {gamma}{delta} T cells	127	0.11071428571428572	115.28571428571428	5.346456692913387	0.7322834645669292	γδ, pag, btn3a1
+20	2020-01-10	Featured Videos	These parrots are the first birds observed showing kindness to others	536	0.06606801093643197	104.76666666666668	4.8507462686567155	0.5503731343283582	african, tokens, grays
+21	2020-01-10	Featured Videos	Watch a puffin use a tool—to scratch an itch	178	0.0527972027972028	127.5	4.707865168539327	0.6629213483146067	video, seen, puffin
+22	2020-01-10	First Release	Stormy water on Mars: The distribution and saturation of atmospheric water during the dusty season	2266	0.0551958525345622	107.34375	5.065754633715799	0.383053839364519	water, ls, vapor
+23	2020-01-10	Insights	Tolerance to antibiotics affects response	1021	0.050131485429992906	134.33962264150944	5.981390793339863	0.4603330068560235	tolerance, antibiotic, antimicrobial
+24	2020-01-10	Featured Videos	Watch Russia, China, United States race to deploy ‘blazingly fast’ hypersonic weapons	168	0.01571428571428572	110.11111111111113	4.863095238095238	0.6547619047619048	hypersonic, weapons, china
+25	2020-01-10	Journals	Gamma-ray flash	234	0.06633333333333333	95.9375	5.585470085470085	0.4871794871794872	lightning, tgf, gamma
+26	2020-01-10	Insider	Indonesian health minister under fire for pushing his own controversial stroke treatment	795	0.0801223147921261	118.90476190476193	5.262893081761006	0.5522012578616352	terawan, indonesian, treatment
+27	2020-01-10	Featured Videos	Dancing chimpanzees may reveal how humans started to boogie	815	0.043473768016021534	134.9142857142857	4.765644171779141	0.4993865030674847	hattori, rhythmic, sounds
+28	2020-01-10	Insights	Completing Wallace's journey	974	0.12263705321227444	143.9111111111111	5.6211498973305964	0.5277207392197125	species, descriptions, bird
+29	2020-01-10	Journals	Limiting sea level rise	158	0.03148148148148147	119.375	5.063291139240507	0.5949367088607594	slr, temperature, target
+30	2020-01-10	Insights	Improving cancer screening programs	1890	0.1194701575020724	156.7051282051282	5.4523809523809526	0.3343915343915344	screening, cancer, programs
+31	2020-01-10	Insights	A sugary input to leucine sensing	1115	0.007035480859010275	149.36	5.687892376681615	0.4278026905829597	leucine, lars1, mtorc1
+32	2020-01-10	Insider	Mystery virus found in Wuhan resembles bat viruses but not SARS, Chinese scientist says	760	0.12723124098124095	90.60416666666669	4.7210526315789485	0.4355263157894737	virus, xu, patients
+33	2020-01-10	Journals	Need for speed	2401	0.059723561850754836	99.2837837837838	5.1091211995002075	0.4589754269054561	hypersonic, says, weapons
+34	2020-01-10	Journals	Early orangutan development	145	0.0912962962962963	136.14285714285714	5.572413793103448	0.7172413793103448	exploration, cognitive, social
+35	2020-01-10	Featured Videos	Watch this AI goalie psych out its opponent in the most hilarious way	350	-0.05626262626262627	113.35294117647058	4.471428571428572	0.6114285714285714	bot, ai, blue
 36	2020-01-11	Insider	Yada yada… Scientists name new virus after Seinfeld catchphrase	339	0.09883527392148082	112.27777777777777	4.929203539823009	0.6194690265486725	yada, virus, mosquitoes
 37	2020-01-11	Insider	Chinese researchers reveal draft genome of virus implicated in Wuhan pneumonia outbreak	681	0.12796266233766238	126.1875	4.928046989720999	0.5227606461086637	virus, health, public
 38	2020-04-17	Editor's Picks	How does coronavirus kill? Clinicians trace a ferocious rampage through the body, from brain to toes	3325	0.049413857271000096	125.77639751552796	5.0685714285714285	0.3819548872180451	blood, patients, covid
 39	2020-05-01	Editor's Picks	Substantial undocumented infection facilitates the rapid dissemination of novel coronavirus (SARS-CoV-2)	334	0.15153508771929824	117.26315789473685	5.6706586826347305	0.5089820359281437	undocumented, infections, documented
 40	2020-05-04	Editor's Picks	How to handle rejection in your professional life	1348	0.1223926856971411	74.98936170212765	4.2381305637982205	0.4221068249258161	noes, professional, told
 41	2020-05-06	Editor's Picks	The emergence of heat and humidity too severe for human tolerance	154	0.07703703703703704	161.83333333333334	5.324675324675325	0.6948051948051948	tw, heat, 35
-42	2020-05-08	Editor's Picks	Quantifying SARS-CoV-2 transmission suggests epidemic control with digital contact tracing	999	0.1128713401294046	114.58620689655173	5.653653653653652	0.4294294294294294	tracing, epidemic, contact
+42	2020-05-08	Editor's Picks	Fact-checking Judy Mikovits, the controversial virologist attacking Anthony Fauci in a viral conspiracy video	2036	0.03061449902754249	95.4	4.848231827111984	0.4081532416502947	mikovits, hiv, virus
 43	2020-05-08	Editor's Picks	‘Finally, a virus got me.’ Scientist who fought Ebola and HIV reflects on facing death from COVID-19	1730	0.0781105258377986	85.4537037037037	4.33757225433526	0.4052023121387283	piot, 19, home
-44	2020-05-08	Editor's Picks	Fact-checking Judy Mikovits, the controversial virologist attacking Anthony Fauci in a viral conspiracy video	2036	0.03061449902754249	95.4	4.8482318271119835	0.4081532416502947	mikovits, hiv, virus
+44	2020-05-08	Editor's Picks	Quantifying SARS-CoV-2 transmission suggests epidemic control with digital contact tracing	999	0.1128713401294046	114.58620689655173	5.653653653653652	0.4294294294294294	tracing, epidemic, contact
 45	2020-05-14	Editor's Picks	T cells found in COVID-19 patients ‘bode well’ for long-term immunity	769	0.1046922492401216	126.2162162162162	5.072821846553966	0.47074122236671	cells, immune, cov
-46	2020-05-22	Editor's Picks	Bumble bees damage plant leaves and accelerate flower production when pollen is scarce	259	0.07280701754385965	100.94117647058823	5.644787644787644	0.6177606177606177	bumble, bees, availability
-47	2020-06-12	Journals	Big studies dim hopes for hydroxychloroquine	1416	0.08372562273791785	119.16901408450704	4.951271186440677	0.4456214689265537	hydroxychloroquine, trials, drug
-48	2020-06-12	First Release	Studies in humanized mice and convalescent humans yield a SARS-CoV-2 antibody cocktail	125	0.18798701298701292	223.0	6.112	0.736	antibodies, antibody, humanized
-49	2020-06-12	Journals	Canaries changing colors	270	0.1729166666666667	102.44444444444444	5.82962962962963	0.5814814814814815	dichromatism, coloration, carotenoid
-50	2020-06-12	First Release	The impact of COVID-19 and strategies for mitigation and suppression in low- and middle-income countries	148	0.12445054945054945	166.16666666666666	5.722972972972973	0.6824324324324325	health, countries, capacity
-51	2020-06-12	Insights	Costs and benefits of living with predators	1111	0.10181558892496397	133.0196078431373	5.10981098109811	0.4311431143114312	sea, otters, predators
-52	2020-06-12	Featured Videos	Fighting fish synchronize their moves—and their genes	763	0.17489676989676986	115.13157894736842	4.703800786369594	0.5072083879423329	fish, genes, fights
-53	2020-06-12	Insights	Mapping Earth's deepest secrets	999	0.050944841675178765	173.35135135135135	5.40940940940941	0.4554554554554554	mantle, earth, seismic
-54	2020-06-12	Journals	Strain rate–dependent mechanical metamaterials	152	0.016316526610644255	178.66666666666663	6.065789473684211	0.6907894736842105	bi, strain, beams
-55	2020-06-12	Insights	CRISPR at lightning speeds	1230	0.10803824721377916	139.4909090909091	5.230894308943089	0.4552845528455284	dna, cas9, repair
-56	2020-06-12	Featured Videos	Watch an example of chimpanzee ‘culture,’ as one fishes for termites	168	0.13544823232323233	127.125	5.0059523809523805	0.7559523809523809	stick, chimp, chimps
-57	2020-06-12	Featured Videos	Animal and human studies reveal health impacts of social inequality	152	0.1731060606060606	103.875	4.407894736842105	0.7434210526315791	social, 000, factors
-58	2020-06-12	Featured Videos	Like humans, these big-brained birds may owe their smarts to long childhoods	646	0.17193048497396324	142.17857142857142	5.139318885448916	0.5495356037151703	birds, corvids, parents
-59	2020-06-12	Insights	Electrification of the chemical industry	932	0.090802657990158	115.79591836734693	5.098712446351931	0.4291845493562232	process, eo, energy
-60	2020-06-12	First Release	Unexpected air pollution with marked emission reductions during the COVID-19 outbreak in China	127	0.031178571428571427	188.2	6.4015748031496065	0.7637795275590551	aerosol, ozone, formation
-61	2020-06-12	Journals	Computing cancer's weak spots	2879	0.10175107507197058	125.43884892086331	5.050017367141368	0.3733935394234109	califano, cancer, algorithms
-62	2020-06-12	Journals	Speedy screen for tumor therapies	343	0.17897619047619046	153.53333333333333	5.702623906705539	0.5830903790087464	ht, dbp, tumor
-63	2020-06-12	Journals	Spike antibody specificity	245	0.09810846560846563	180.44444444444446	5.628571428571429	0.6204081632653061	rbd, sars, cov
-64	2020-06-12	Journals	Controlling mosquito populations with drones	190	0.14183673469387756	167.14285714285714	5.136842105263158	0.6157894736842106	sterile, insect, homogeneous
-65	2020-06-12	First Release	Broad neutralization of SARS-related viruses by human monoclonal antibodies	124	0.12630952380952382	178.6	6.209677419354839	0.7661290322580645	cross, sars, antibodies
-66	2020-06-12	Journals	Keeping pace with climate change in global terrestrial protected areas	154	0.05833333333333333	152.28571428571428	5.9350649350649345	0.6428571428571429	climatic, protection, pas
-67	2020-06-12	Journals	Optimizing microswimmers	222	0.040000000000000015	201.5	6.256756756756758	0.5900900900900901	microswimmers, interactions, morphology
-68	2020-06-12	Journals	Illuminating dimerization	276	0.02499999999999999	149.9230769230769	6.043478260869565	0.5362318840579711	smchd1, hinge, domain
-69	2020-06-12	Featured Videos	Deep-sea currents are behind the ocean’s thickest piles of microplastics	228	0.1339831349206349	116.75	5.1271929824561395	0.6491228070175439	sea, microplastics, sediment
-70	2020-06-12	Journals	Monitoring tumor DNA in plasma using integration of variant reads	367	0.12546583850931678	135.47058823529414	5.280653950953679	0.5422343324250681	tumor, ctdna, detection
-71	2020-06-12	Journals	Finding a TRAIL to allergy control	367	0.19222789115646255	162.86666666666667	5.6648501362397825	0.5040871934604905	hdm, th, allergy
-72	2020-06-12	First Release	Antibody cocktail to SARS-CoV-2 spike protein prevents rapid mutational escape seen with individual antibodies	119	0.1545454545454545	168.0	6.042016806722689	0.6638655462184874	spike, antibodies, following
-73	2020-06-12	First Release	Isolation of potent SARS-CoV-2 neutralizing antibodies and protection from disease in a small animal model	130	0.15	144.33333333333334	5.661538461538463	0.7384615384615385	nabs, epitopes, rbd
-74	2020-06-12	First Release	Potent neutralizing antibodies from COVID-19 patients define multiple targets of vulnerability	132	0.2340277777777778	112.625	5.840909090909091	0.75	antibodies, cov, sars
-75	2020-06-12	Journals	Aptamers improve targeted anticancer drug delivery	306	0.12066666666666664	188.1818181818182	5.777777777777778	0.5261437908496732	aptamers, myeloid, mouse
-76	2020-06-15	Insider	HIV and TB increase death risk from COVID-19, study finds—but not by much	867	0.04605563207835935	114.95454545454544	4.817762399077278	0.4625144175317186	hiv, tb, covid
-77	2020-06-16	Insider	Huge open-access journal deal inked by University of California and Springer Nature	1005	0.05926833267742359	143.7906976744186	5.128358208955223	0.4467661691542288	uc, oa, nature
-78	2020-06-16	Insider	‘We’ve got to be able to move more quickly.’ The pandemic reality of COVID-19 clinical trials	2703	0.17004629371582172	79.82352941176471	4.542730299667038	0.3240843507214207	trials, clinical, trial
-79	2020-06-16	Insider	A cheap steroid is the first drug shown to reduce death in COVID-19 patients	1349	0.13409390399956436	143.49122807017542	5.042253521126762	0.4329132690882135	patients, dexamethasone, steroids
-80	2020-06-17	Insider	New tensions dim hopes for salvaging Iran nuclear deal	1219	0.05638329103846348	123.40677966101696	4.970467596390483	0.4766201804757999	iran, uranium, nuclear
-81	2020-06-17	Insider	Source of Beijing’s big new COVID-19 outbreak is still a mystery	734	0.03881027253668763	128.1764705882353	4.918256130790191	0.49727520435967304	market, seafood, outbreak
+46	2020-05-19	Editor's Picks	Why do some COVID-19 patients infect many others, whereas most don’t spread the virus at all?	1734	0.1257578317739608	116.0909090909091	4.8760092272203	0.4417531718569781	clusters, says, superspreading
+47	2020-05-22	Editor's Picks	Bumble bees damage plant leaves and accelerate flower production when pollen is scarce	259	0.07280701754385965	100.94117647058823	5.644787644787644	0.6177606177606177	bumble, bees, availability
+48	2020-05-22	Editor's Picks	Projecting the transmission dynamics of SARS-CoV-2 through the postpandemic period	320	0.11232323232323231	118.0	5.64375	0.571875	cov, sars, transmission
+49	2020-05-27	Editor's Picks	UV-B triggered mass extinction	135	0.08977272727272728	150.5	5.703703703703703	0.6814814814814815	extinction, warming, devonian
+50	2020-06-02	Editor's Picks	A mysterious company’s coronavirus papers in top medical journals may be unraveling	2634	0.06152916102302607	148.45045045045046	5.236142748671223	0.3826879271070615	surgisphere, hydroxychloroquine, lancet
+51	2020-06-05	Editor's Picks	‘I can't even enjoy this.’ #BlackBirdersWeek organizer shares her struggles as a black scientist	2464	0.09549439736059455	98.07299270072993	4.459009740259741	0.3409090909090909	black, people, wildlife
+52	2020-06-05	Editor's Picks	Taming cytokine storm	356	0.25892857142857145	152.625	5.856741573033708	0.5280898876404494	patients, 19, btk
+53	2020-06-12	Journals	Keeping pace with climate change in global terrestrial protected areas	154	0.05833333333333333	152.28571428571428	5.935064935064935	0.6428571428571429	climatic, protection, pas
+54	2020-06-12	Journals	Optimizing microswimmers	222	0.04000000000000002	201.5	6.256756756756758	0.5900900900900901	microswimmers, interactions, morphology
+55	2020-06-12	Journals	Illuminating dimerization	276	0.02499999999999999	149.9230769230769	6.043478260869565	0.5362318840579711	smchd1, hinge, domain
+56	2020-06-12	Featured Videos	Deep-sea currents are behind the ocean’s thickest piles of microplastics	228	0.1339831349206349	116.75	5.12719298245614	0.6491228070175439	sea, microplastics, sediment
+57	2020-06-12	Journals	Monitoring tumor DNA in plasma using integration of variant reads	367	0.12546583850931678	135.47058823529414	5.2806539509536785	0.5422343324250681	tumor, ctdna, detection
+58	2020-06-12	Journals	Aptamers improve targeted anticancer drug delivery	306	0.12066666666666664	188.1818181818182	5.777777777777778	0.5261437908496732	aptamers, myeloid, mouse
+59	2020-06-12	First Release	Antibody cocktail to SARS-CoV-2 spike protein prevents rapid mutational escape seen with individual antibodies	119	0.1545454545454545	168.0	6.042016806722689	0.6638655462184874	spike, antibodies, following
+60	2020-06-12	First Release	Isolation of potent SARS-CoV-2 neutralizing antibodies and protection from disease in a small animal model	130	0.15	144.33333333333334	5.661538461538463	0.7384615384615385	nabs, epitopes, rbd
+61	2020-06-12	First Release	Potent neutralizing antibodies from COVID-19 patients define multiple targets of vulnerability	132	0.2340277777777778	112.625	5.840909090909091	0.75	antibodies, cov, sars
+62	2020-06-12	Editor's Picks	Fifty-four scientists have lost their jobs as a result of NIH probe into foreign ties	617	-0.010688405797101454	118.19354838709677	4.930307941653161	0.5186385737439222	nih, foreign, lauer
+63	2020-06-12	Journals	Finding a TRAIL to allergy control	367	0.19222789115646252	162.86666666666667	5.664850136239783	0.5040871934604905	hdm, th, allergy
+64	2020-06-12	First Release	Broad neutralization of SARS-related viruses by human monoclonal antibodies	124	0.12630952380952382	178.6	6.209677419354839	0.7661290322580645	cross, sars, antibodies
+65	2020-06-12	Featured Videos	Animal and human studies reveal health impacts of social inequality	152	0.1731060606060606	103.875	4.407894736842105	0.7434210526315791	social, 000, factors
+66	2020-06-12	Journals	Spike antibody specificity	245	0.09810846560846563	180.44444444444446	5.628571428571429	0.6204081632653061	rbd, sars, cov
+67	2020-06-12	Journals	Big studies dim hopes for hydroxychloroquine	1416	0.08372562273791785	119.16901408450704	4.951271186440677	0.4456214689265537	hydroxychloroquine, trials, drug
+68	2020-06-12	First Release	Studies in humanized mice and convalescent humans yield a SARS-CoV-2 antibody cocktail	125	0.18798701298701287	223.0	6.112	0.736	antibodies, antibody, humanized
+69	2020-06-12	Journals	Canaries changing colors	270	0.1729166666666667	102.44444444444444	5.82962962962963	0.5814814814814815	dichromatism, coloration, carotenoid
+70	2020-06-12	First Release	The impact of COVID-19 and strategies for mitigation and suppression in low- and middle-income countries	148	0.12445054945054945	166.16666666666666	5.722972972972973	0.6824324324324325	health, countries, capacity
+71	2020-06-12	Insights	Costs and benefits of living with predators	1111	0.10181558892496397	133.0196078431373	5.10981098109811	0.4311431143114312	sea, otters, predators
+72	2020-06-12	Featured Videos	Fighting fish synchronize their moves—and their genes	763	0.17489676989676986	115.13157894736842	4.703800786369594	0.5072083879423329	fish, genes, fights
+73	2020-06-12	Insights	Mapping Earth's deepest secrets	999	0.05094484167517877	173.35135135135135	5.40940940940941	0.4554554554554554	mantle, earth, seismic
+74	2020-06-12	Journals	Strain rate–dependent mechanical metamaterials	152	0.016316526610644255	178.66666666666663	6.065789473684211	0.6907894736842105	bi, strain, beams
+75	2020-06-12	Journals	Controlling mosquito populations with drones	190	0.14183673469387756	167.14285714285714	5.136842105263158	0.6157894736842106	sterile, insect, homogeneous
+76	2020-06-12	Featured Videos	Watch an example of chimpanzee ‘culture,’ as one fishes for termites	168	0.13544823232323233	127.125	5.0059523809523805	0.7559523809523809	stick, chimp, chimps
+77	2020-06-12	Featured Videos	Like humans, these big-brained birds may owe their smarts to long childhoods	646	0.17193048497396324	142.17857142857142	5.139318885448916	0.5495356037151703	birds, corvids, parents
+78	2020-06-12	Insights	Electrification of the chemical industry	932	0.09080265799015802	115.79591836734691	5.098712446351931	0.4291845493562232	process, eo, energy
+79	2020-06-12	First Release	Unexpected air pollution with marked emission reductions during the COVID-19 outbreak in China	127	0.031178571428571424	188.2	6.401574803149607	0.7637795275590551	aerosol, ozone, formation
+80	2020-06-12	Journals	Computing cancer's weak spots	2879	0.10175107507197058	125.43884892086331	5.050017367141368	0.3733935394234109	califano, cancer, algorithms
+81	2020-06-12	Journals	Speedy screen for tumor therapies	343	0.17897619047619046	153.53333333333333	5.702623906705539	0.5830903790087464	ht, dbp, tumor
+82	2020-06-12	Insights	CRISPR at lightning speeds	1230	0.10803824721377916	139.4909090909091	5.230894308943089	0.4552845528455284	dna, cas9, repair
+83	2020-06-15	Insider	HIV and TB increase death risk from COVID-19, study finds—but not by much	867	0.04605563207835935	114.95454545454544	4.817762399077278	0.4625144175317186	hiv, tb, covid
+84	2020-06-16	Insider	Huge open-access journal deal inked by University of California and Springer Nature	1005	0.05926833267742359	143.7906976744186	5.128358208955222	0.4467661691542288	uc, oa, nature
+85	2020-06-16	Editor's Picks	What I've learned about being a Black scientist	1940	0.0840446953192051	118.4	4.485567010309278	0.3938144329896907	car, want, black
+86	2020-06-16	Insider	A cheap steroid is the first drug shown to reduce death in COVID-19 patients	1349	0.13409390399956436	143.4912280701754	5.042253521126762	0.4329132690882135	patients, dexamethasone, steroids
+87	2020-06-16	Insider	‘We’ve got to be able to move more quickly.’ The pandemic reality of COVID-19 clinical trials	2703	0.17004629371582172	79.82352941176471	4.5427302996670385	0.3240843507214207	trials, clinical, trial
+88	2020-06-17	Insider	New tensions dim hopes for salvaging Iran nuclear deal	1219	0.05638329103846348	123.40677966101696	4.970467596390483	0.4766201804757999	iran, uranium, nuclear
+89	2020-06-17	Insider	Source of Beijing’s big new COVID-19 outbreak is still a mystery	734	0.03881027253668763	128.1764705882353	4.9182561307901915	0.497275204359673	market, seafood, outbreak
+90	2020-06-24	Insider	Graduate programs drop GRE after online version raises concerns about fairness	1138	0.09724025974025974	113.35593220338983	4.867311072056239	0.4780316344463972	gre, test, scores
+91	2020-06-24	Insider	Lawsuit alleges scientific misconduct at U.S. nuclear weapons lab	1207	0.0800843149098963	132.21818181818182	5.00082850041425	0.4755592377796189	williams, says, livermore
+92	2020-06-25	Insider	South Africa slashes science budget, funds for giant radio telescope	402	0.07905328798185941	114.0	4.925373134328358	0.6218905472636815	south, africa, ska
+93	2020-06-25	Insider	Is it time to replace one of the cornerstones of animal research?	1044	0.1568761758635176	93.73015873015873	4.657088122605364	0.4501915708812261	rs, animals, animal
+94	2020-06-25	Insider	EPA gives up on barring grantees from science advisory panels	844	0.1053296571153714	135.35897435897436	5.241706161137441	0.5604265402843602	epa, agency, advisory
+95	2020-06-26	First Release	Structural insight into precursor ribosomal RNA processing by ribonuclease MRP	127	0.020312500000000004	177.0	5.9763779527559056	0.7401574803149606	rnase, mrp, substrates
+96	2020-06-26	First Release	Rational synthesis of atomically precise graphene nanoribbons directly on metal oxide surfaces	120	0.19263888888888892	179.6	6.466666666666667	0.7833333333333333	gnrs, surface, atomically
+97	2020-06-26	First Release	Estimating the burden of SARS-CoV-2 in France	160	0.06	44.05263157894737	4.28125	0.69375	lockdown, population, infected
+98	2020-06-26	Journals	Cell clusters for personalized anticancer drug screening	293	0.10312713602187287	129.8	5.648464163822526	0.6348122866894198	tumor, ptc, patient
+99	2020-06-26	Journals	cGAS-STING signaling promotes antitumor response in CD8+ T cells	318	0.08541666666666665	135.66666666666666	5.418238993710692	0.4716981132075472	sting, cgas, cd8
+100	2020-06-26	Journals	Tumor growth and spread MET-ered by Rac	323	0.08888888888888889	167.92307692307693	5.74922600619195	0.48297213622291024	rac1, growth, pi3k
+101	2020-06-26	Journals	Lighting a spark from the lysosome	365	0.16097701149425286	141.7058823529412	5.619178082191781	0.4849315068493151	ca2, trpml1, vascular
+102	2020-06-26	Journals	Sex, age, and the macrophage	341	0.11312499999999999	164.28571428571428	5.733137829912024	0.5043988269794721	peritoneal, macrophages, sex
+103	2020-06-26	Journals	Live long and protect	385	0.1009185606060606	155.75	5.475324675324675	0.5428571428571428	antibody, responses, env
+104	2020-06-26	Journals	Antarctic Adélie penguins	156	0.19	179.16666666666666	5.8076923076923075	0.7435897435897436	ice, success, breeding
+105	2020-06-26	First Release	A mathematical model reveals the influence of population heterogeneity on herd immunity to SARS-CoV-2	137	0.28106060606060607	177.2	5.481751824817518	0.6788321167883211	immunity, herd, rates
+106	2020-06-26	Journals	Martian chronicler	3317	0.0948692896609563	113.06470588235294	4.774193548387097	0.3883026831474224	rover, mars, water
+107	2020-06-26	Journals	Dawn of the chicken revealed in Southeast Asia	858	-0.007364653418870281	117.75555555555556	5.172494172494172	0.527972027972028	chicken, asia, bird
+108	2020-06-26	Featured Videos	Dolphins learn unusual hunting behavior from their friends	664	0.19634087725999483	145.35714285714286	5.091867469879518	0.5813253012048193	dolphins, shelling, dolphin
+109	2020-06-26	Journals	Arctic dogs	245	0.04670138888888889	100.2	5.134693877551021	0.5346938775510204	dogs, sled, dog
+110	2020-06-26	Insights	Reducing transmission of SARS-CoV-2	1892	0.12109252462513333	156.03846153846155	5.407505285412262	0.37684989429175475	aerosols, transmission, airborne
+111	2020-06-26	Insights	Evolution after genome duplication	1031	0.12245468073593074	124.84905660377359	5.4228903976721625	0.3976721629485936	duplicate, genes, duplication
+112	2020-06-26	Insights	Guide cells help navigate axon regeneration	999	0.05438377279286371	145.57777777777778	5.565565565565565	0.43343343343343343	guidepost, cells, neurons
+113	2020-06-26	Insights	The simplicity of robust light harvesting	1131	0.12167177966390572	116.06557377049181	5.263483642793988	0.45446507515473034	light, antenna, noise
+114	2020-06-26	Journals	Cancer risk	143	0.055833333333333325	117.75	5.594405594405594	0.6503496503496503	tp53, xaf1, r337h
+115	2020-06-26	First Release	A neutralizing human antibody binds to the N-terminal domain of the Spike protein of SARS-CoV-2	138	0.141	104.875	5.101449275362318	0.6521739130434783	4a8, ntd, mabs
